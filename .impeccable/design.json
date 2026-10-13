@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T09:19:16.683Z",
+  "title": "Design System: PubMed Research Intelligence",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Primary",
+        "tonalRamp": [
+          "oklch(15.00% 0.21521 262.88)",
+          "oklch(26.43% 0.21521 262.88)",
+          "oklch(37.86% 0.21521 262.88)",
+          "oklch(49.29% 0.21521 262.88)",
+          "oklch(60.71% 0.21521 262.88)",
+          "oklch(72.14% 0.21521 262.88)",
+          "oklch(83.57% 0.21521 262.88)",
+          "oklch(95.00% 0.21521 262.88)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Primary Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.21717 264.38)",
+          "oklch(26.43% 0.21717 264.38)",
+          "oklch(37.86% 0.21717 264.38)",
+          "oklch(49.29% 0.21717 264.38)",
+          "oklch(60.71% 0.21717 264.38)",
+          "oklch(72.14% 0.21717 264.38)",
+          "oklch(83.57% 0.21717 264.38)",
+          "oklch(95.00% 0.21717 264.38)"
+        ]
+      },
+      "chart-cyan": {
+        "role": "secondary",
+        "displayName": "Chart Cyan",
+        "tonalRamp": [
+          "oklch(15.00% 0.11094 221.72)",
+          "oklch(26.43% 0.11094 221.72)",
+          "oklch(37.86% 0.11094 221.72)",
+          "oklch(49.29% 0.11094 221.72)",
+          "oklch(60.71% 0.11094 221.72)",
+          "oklch(72.14% 0.11094 221.72)",
+          "oklch(83.57% 0.11094 221.72)",
+          "oklch(95.00% 0.11094 221.72)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "tonalRamp": [
+          "oklch(15.00% 0.03982 265.75)",
+          "oklch(26.43% 0.03982 265.75)",
+          "oklch(37.86% 0.03982 265.75)",
+          "oklch(49.29% 0.03982 265.75)",
+          "oklch(60.71% 0.03982 265.75)",
+          "oklch(72.14% 0.03982 265.75)",
+          "oklch(83.57% 0.03982 265.75)",
+          "oklch(95.00% 0.03982 265.75)"
+        ]
+      },
+      "text-secondary": {
+        "role": "neutral",
+        "displayName": "Text Secondary",
+        "tonalRamp": [
+          "oklch(15.00% 0.03745 257.28)",
+          "oklch(26.43% 0.03745 257.28)",
+          "oklch(37.86% 0.03745 257.28)",
+          "oklch(49.29% 0.03745 257.28)",
+          "oklch(60.71% 0.03745 257.28)",
+          "oklch(72.14% 0.03745 257.28)",
+          "oklch(83.57% 0.03745 257.28)",
+          "oklch(95.00% 0.03745 257.28)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.04072 257.42)",
+          "oklch(26.43% 0.04072 257.42)",
+          "oklch(37.86% 0.04072 257.42)",
+          "oklch(49.29% 0.04072 257.42)",
+          "oklch(60.71% 0.04072 257.42)",
+          "oklch(72.14% 0.04072 257.42)",
+          "oklch(83.57% 0.04072 257.42)",
+          "oklch(95.00% 0.04072 257.42)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "tonalRamp": [
+          "oklch(15.00% 0.00453 258.32)",
+          "oklch(26.43% 0.00453 258.32)",
+          "oklch(37.86% 0.00453 258.32)",
+          "oklch(49.29% 0.00453 258.32)",
+          "oklch(60.71% 0.00453 258.32)",
+          "oklch(72.14% 0.00453 258.32)",
+          "oklch(83.57% 0.00453 258.32)",
+          "oklch(95.00% 0.00453 258.32)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "surface-muted": {
+        "role": "neutral",
+        "displayName": "Surface Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.00685 247.90)",
+          "oklch(26.43% 0.00685 247.90)",
+          "oklch(37.86% 0.00685 247.90)",
+          "oklch(49.29% 0.00685 247.90)",
+          "oklch(60.71% 0.00685 247.90)",
+          "oklch(72.14% 0.00685 247.90)",
+          "oklch(83.57% 0.00685 247.90)",
+          "oklch(95.00% 0.00685 247.90)"
+        ]
+      },
+      "surface-table": {
+        "role": "neutral",
+        "displayName": "Surface Table",
+        "tonalRamp": [
+          "oklch(15.00% 0.00341 247.86)",
+          "oklch(26.43% 0.00341 247.86)",
+          "oklch(37.86% 0.00341 247.86)",
+          "oklch(49.29% 0.00341 247.86)",
+          "oklch(60.71% 0.00341 247.86)",
+          "oklch(72.14% 0.00341 247.86)",
+          "oklch(83.57% 0.00341 247.86)",
+          "oklch(95.00% 0.00341 247.86)"
+        ]
+      },
+      "surface-insights": {
+        "role": "neutral",
+        "displayName": "Surface Insights",
+        "tonalRamp": [
+          "oklch(15.00% 0.00416 236.49)",
+          "oklch(26.43% 0.00416 236.49)",
+          "oklch(37.86% 0.00416 236.49)",
+          "oklch(49.29% 0.00416 236.49)",
+          "oklch(60.71% 0.00416 236.49)",
+          "oklch(72.14% 0.00416 236.49)",
+          "oklch(83.57% 0.00416 236.49)",
+          "oklch(95.00% 0.00416 236.49)"
+        ]
+      },
+      "surface-blue": {
+        "role": "neutral",
+        "displayName": "Surface Blue",
+        "tonalRamp": [
+          "oklch(15.00% 0.01485 260.73)",
+          "oklch(26.43% 0.01485 260.73)",
+          "oklch(37.86% 0.01485 260.73)",
+          "oklch(49.29% 0.01485 260.73)",
+          "oklch(60.71% 0.01485 260.73)",
+          "oklch(72.14% 0.01485 260.73)",
+          "oklch(83.57% 0.01485 260.73)",
+          "oklch(95.00% 0.01485 260.73)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.01090 256.70)",
+          "oklch(26.43% 0.01090 256.70)",
+          "oklch(37.86% 0.01090 256.70)",
+          "oklch(49.29% 0.01090 256.70)",
+          "oklch(60.71% 0.01090 256.70)",
+          "oklch(72.14% 0.01090 256.70)",
+          "oklch(83.57% 0.01090 256.70)",
+          "oklch(95.00% 0.01090 256.70)"
+        ]
+      },
+      "control-line": {
+        "role": "neutral",
+        "displayName": "Control Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.01441 254.61)",
+          "oklch(26.43% 0.01441 254.61)",
+          "oklch(37.86% 0.01441 254.61)",
+          "oklch(49.29% 0.01441 254.61)",
+          "oklch(60.71% 0.01441 254.61)",
+          "oklch(72.14% 0.01441 254.61)",
+          "oklch(83.57% 0.01441 254.61)",
+          "oklch(95.00% 0.01441 254.61)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Focus",
+        "tonalRamp": [
+          "oklch(15.00% 0.11283 264.97)",
+          "oklch(26.43% 0.11283 264.97)",
+          "oklch(37.86% 0.11283 264.97)",
+          "oklch(49.29% 0.11283 264.97)",
+          "oklch(60.71% 0.11283 264.97)",
+          "oklch(72.14% 0.11283 264.97)",
+          "oklch(83.57% 0.11283 264.97)",
+          "oklch(95.00% 0.11283 264.97)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Homepage headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Dashboard query title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base interface text; local reading styles are smaller."
+      },
+      "reading": {
+        "displayName": "Reading",
+        "purpose": "Chinese brief paragraphs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation and button labels."
+      },
+      "metric": {
+        "displayName": "Metric",
+        "purpose": "Tabular KPI values."
+      }
+    },
+    "shadows": [
+      {
+        "name": "disclosure-lift",
+        "value": "0 4px 12px #0f172a12",
+        "purpose": "Floating metric explanation only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background 0.15s, color 0.15s",
+        "purpose": "Primary and secondary button transitions."
+      },
+      {
+        "name": "progress",
+        "value": "transform 0.5s ease",
+        "purpose": "Real backend stage progress."
+      },
+      {
+        "name": "loading",
+        "value": "spin 1.6s linear infinite",
+        "purpose": "Loading indicator rotation."
+      },
+      {
+        "name": "chart-entry",
+        "value": "450ms",
+        "purpose": "ECharts entry animation; disabled by reduced-motion preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1500px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "800px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary analysis action.",
+      "html": "<button class=\"ds-primary\">Analyze <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-7-7 7 7-7 7\"/></svg></button>",
+      "css": ".ds-primary{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;min-height:40px;padding:10px 17px;border-radius:6px;display:inline-flex;justify-content:center;align-items:center;gap:9px;font-weight:500;font-size:12px;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s;border:0;background:var(--blue,#2563eb);color:#fff}.ds-primary:hover:not(:disabled){background:#1d4ed8}.ds-primary:focus-visible{outline:3px solid #93b5ff;outline-offset:3px;}.ds-primary:disabled{opacity:.55;cursor:not-allowed}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Supporting export or methodology action.",
+      "html": "<button class=\"ds-secondary\">View methodology</button>",
+      "css": ".ds-secondary{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;min-height:40px;padding:10px 17px;border-radius:6px;display:inline-flex;justify-content:center;align-items:center;gap:9px;font-weight:500;font-size:12px;white-space:nowrap;cursor:pointer;transition:background .15s,color .15s;background:#fff;border:1px solid #dbe2eb;color:#475569}.ds-secondary:hover{background:#f1f5f9;border-color:#bac7d9}.ds-secondary:focus-visible{outline:3px solid #93b5ff;outline-offset:3px;}.ds-secondary:disabled{opacity:.55;cursor:not-allowed}"
+    },
+    {
+      "name": "Text Button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Quiet linked action.",
+      "html": "<button class=\"ds-text\">View data sources</button>",
+      "css": ".ds-text{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;border:0;background:none;padding:0;color:var(--blue,#2563eb);display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;cursor:pointer}.ds-text:hover{text-decoration:underline}.ds-text:focus-visible{outline:3px solid #93b5ff;outline-offset:3px;}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Flexible labeled topic entry; the full source enclosure also holds sample size and submit controls.",
+      "html": "<div class=\"ds-search\"><svg width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input aria-label=\"Research topic\" placeholder=\"Enter a research topic…\"/></div>",
+      "css": ".ds-search{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;display:flex;align-items:center;background:#fff;border:1px solid #d9e1ec;padding:7px 7px 7px 20px;border-radius:8px;gap:12px}.ds-search:focus-within{border-color:#8cacfa}.ds-search>svg{color:#8390a4;flex-shrink:0}.ds-search input{font:inherit;border:0;background:transparent;outline:none;min-width:0;flex:1;height:40px;font-size:14px;color:#0f172a;caret-color:var(--blue,#2563eb)}.ds-search input::placeholder{color:#718096}.ds-search input:focus-visible{outline:none}"
+    },
+    {
+      "name": "Topic Suggestion",
+      "kind": "chip",
+      "refersTo": "topic-chip",
+      "description": "Select an example research query.",
+      "html": "<button class=\"ds-topic\">CRISPR</button>",
+      "css": ".ds-topic{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;font-size:10px;border:1px solid var(--line,#e3e8ef);border-radius:5px;padding:6px 9px;background:#fff;color:#475569;cursor:pointer}.ds-topic:hover{border-color:#8facdc;color:var(--blue,#2563eb)}.ds-topic:focus-visible{outline:3px solid #93b5ff;outline-offset:3px;}"
+    },
+    {
+      "name": "Evidence Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat bordered container with a compact evidence heading.",
+      "html": "<section class=\"ds-panel\"><div class=\"ds-panel-heading\"><h2>Publications over time</h2><p>Full PubMed query · Annual publication volume</p></div></section>",
+      "css": ".ds-panel{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;border:1px solid var(--line,#e3e8ef);background:#fff;border-radius:var(--radius,8px);min-width:0;overflow:hidden;color:#0f172a}.ds-panel-heading{padding:22px 24px 10px}.ds-panel-heading h2{font-size:15px;font-weight:600;letter-spacing:-.025em;margin:0}.ds-panel-heading p{font-size:10px;color:var(--muted,#64748b);margin:6px 0 0;line-height:1.65}"
+    },
+    {
+      "name": "Main Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Route navigation with blue active underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a class=\"ds-active\" aria-current=\"page\" href=\"#explore\">Explore</a><a href=\"#sources\">Data sources</a><a href=\"#about\">About</a></nav>",
+      "css": ".ds-nav{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;display:flex;align-items:center;gap:32px;font-size:12px;font-weight:500;color:var(--muted,#64748b)}.ds-nav a{color:inherit;text-decoration:none;padding:27px 0;border-bottom:2px solid transparent}.ds-nav a.ds-active{color:var(--blue,#2563eb);border-color:var(--blue,#2563eb)}.ds-nav a:hover{color:var(--blue,#2563eb)}.ds-nav a:focus-visible{outline:3px solid #93b5ff;outline-offset:3px;}@media(max-width:560px){.ds-nav{width:100%;justify-content:space-between;gap:15px;font-size:11px}.ds-nav a{padding:13px 0}}"
+    },
+    {
+      "name": "Metric Explanation",
+      "kind": "custom",
+      "description": "Native keyboard-operable disclosure for computed research diversity.",
+      "html": "<details class=\"ds-explainer\"><summary aria-label=\"Explain research diversity\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4m0-4h.01\"/></svg></summary><span>Normalized Shannon entropy of topic frequencies, from 0 to 100. It measures topic spread, not research quality.</span></details>",
+      "css": ".ds-explainer{font-family:Inter,\"Segoe UI\",\"Microsoft YaHei\",sans-serif;display:inline-block;position:relative;vertical-align:middle}.ds-explainer summary{cursor:pointer;list-style:none;color:#64748b;padding:3px}.ds-explainer summary::-webkit-details-marker{display:none}.ds-explainer summary:focus-visible{outline:3px solid #93b5ff;outline-offset:3px;}.ds-explainer>span{position:absolute;bottom:25px;left:-80px;width:230px;padding:12px;z-index:2;background:#fff;border:1px solid #cbd5e1;border-radius:6px;color:#334155;font-size:12px;line-height:1.6;box-shadow:0 4px 12px #0f172a12}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Inspectable scientific evidence",
+    "overview": "The confirmed world is a white and light-gray scientific SaaS interface. Compact controls, fine dividing rules, dense tables, and clear numeric hierarchy support researchers inspecting a query and its evidence. This name describes the shipped and user-approved direction; it is not a retrospective concept workshop.\n\nWhite panels sit on a cool gray canvas. Blue marks actions, active navigation, linked evidence, and primary charts. Dark text carries the content; gray supports provenance and scope. The bundled Inter family provides one consistent voice across interface and charts, with Chinese text using the declared fallback stack.",
+    "keyCharacteristics": [
+      "Flat white panels with fine gray borders and gently curved corners.",
+      "Dense evidence displays with distinct full-query and recent-sample scope.",
+      "One type family, restrained blue actions, and supporting cyan data geometry.",
+      "Responsive stacking and local table scrolling.",
+      "Keyboard-visible controls and reduced-motion support."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Blue Rule",
+        "body": "Use blue for actions, selected navigation, references, and primary data emphasis, following the existing semantic assignments.",
+        "section": "colors"
+      },
+      {
+        "name": "The Numeric Scan Rule",
+        "body": "Keep KPI values and numeric table columns tabular; align journal count columns to the right.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Panel Rule",
+        "body": "Use borders and tonal surfaces for panel separation; reserve the observed lift for the floating explanation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the white/light-gray scientific SaaS world, bundled Inter, and panel radius.",
+      "Do use blue consistently for actions, selected navigation, references, and primary data.",
+      "Do keep full-query counts visibly distinct from recent-sample statistics.",
+      "Do retain keyboard focus, accessible control labels, and reduced-motion behavior.",
+      "Do use local scrolling for wide paper tables and stack analytic panels at the observed breakpoints.",
+      "Do retain the requested research-direction and brief numbering in those content structures."
+    ],
+    "donts": [
+      "Don't add ambient panel shadows to the flat panel vocabulary.",
+      "Don't turn local chart colors into unrelated interface accents.",
+      "Don't turn the research numbering into decorative kickers or numbered methodology headings.",
+      "Don't present missing values as fabricated data."
+    ]
+  }
+}

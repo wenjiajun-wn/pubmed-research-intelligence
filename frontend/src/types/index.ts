@@ -1,0 +1,87 @@
+export type Frequency = { name: string; count: number };
+export type Metric = {
+  impact_factor: number | null;
+  metric_year: string | null;
+  metric_source: string | null;
+  metric_url: string | null;
+};
+export type Paper = Metric & {
+  pmid: string;
+  title: string;
+  abstract: string;
+  authors: string[];
+  journal: string;
+  publication_year: number | null;
+  publication_date: string;
+  publication_type?: string[];
+  doi: string | null;
+  keywords: string[];
+  mesh_terms: string[];
+};
+export type BriefSection = { title: string; text: string; pmids: string[] };
+export type Analysis = {
+  id: string;
+  query: string;
+  query_translation: string;
+  retrieved_at: string;
+  sample_size: number;
+  requested_sample_size?: number;
+  reference_year: number;
+  paper_year_start: number;
+  data_mode: "live" | "cached" | "cached_demo";
+  summary_mode: "pending" | "llm" | "fallback";
+  summary_note?: string;
+  overview: {
+    total_publications: number;
+    last_five_years: number | null;
+    countries: number;
+    journals: number;
+    top_topic: string | null;
+  };
+  annual_trend: { year: number; count: number }[];
+  trend_scope: "full_query" | "sample";
+  countries: Frequency[];
+  unknown_country_count: number;
+  topics: Frequency[];
+  word_cloud: Frequency[];
+  journals: (Frequency & Metric)[];
+  papers: Paper[];
+  eligible_paper_count: number;
+  metric_coverage: number;
+  insights: {
+    publication_growth: number | null;
+    growth_start: number;
+    growth_end: number;
+    top_country: string | null;
+    top_journal: string | null;
+    emerging_topic: { name: string; change_percentage_points: number } | null;
+    research_diversity: number | null;
+  };
+  research_themes: BriefSection[];
+  research_brief: BriefSection[];
+  warnings: string[];
+};
+export type Job = {
+  request?: { query: string; mode: "live" | "demo"; sample_size: number };
+  id: string;
+  status: "running" | "completed" | "failed";
+  stage: string;
+  progress: number;
+  result: Analysis | null;
+  error?: string;
+};
+export type Sources = {
+  provider: string;
+  database: string;
+  api: string;
+  api_url: string;
+  query: string;
+  query_translation: string;
+  retrieved: number;
+  retrieved_at: string;
+  total_count: number;
+  data_mode: Analysis["data_mode"];
+  summary_mode: string;
+  methods: { title: string; text: string }[];
+  metric_source_url: string;
+};

@@ -1,0 +1,159 @@
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  height: 76px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+.brand-symbol {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 7px;
+  width: 37px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+}
+.brand-sub {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.025em;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.nav-inner nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+.nav-inner nav a {
+  padding: 27px 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-inner nav a.active {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+.nav-inner nav a:hover {
+  color: var(--blue);
+}
+.nav-inner nav .github-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid #dbe2eb;
+  border-radius: 6px;
+  color: #475569;
+  background: #fff;
+  white-space: nowrap;
+}
+.language-toggle:hover {
+  background: #eff5ff;
+  color: #2563eb;
+  border-color: #93b5ff;
+}
+@media (max-width: 560px) {
+  .nav-inner nav {
+    gap: 10px;
+  }
+  .language-toggle {
+    gap: 4px;
+    padding: 5px 7px;
+    min-height: 30px;
+    font-size: 11px;
+  }
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  max-width: 1320px;
+  margin: 45px auto 0;
+  padding: 24px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 11px;
+  color: #64748b;
+}
+.site-footer > span,
+.site-footer > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.site-footer > span:first-child {
+  font-weight: 600;
+  color: #475569;
+}
+.footer-dot {
+  margin: 0 5px;
+}
+.button {
+  min-height: 40px;
+  padding: 10px 17px;
+  border-radius: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.primary {
+  background: var(--blue);
+  color: #fff;
+}
+.primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+.secondary {
+  background: #fff;
+  border: 1px solid #dbe2eb;
+  color: #475569;
+}
+.secondary:hover {
+  background: #f1f5f9;
+  border-color: #bac7d9;
+}
+.text-button {
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.text-button:hover {
+  text-decoration: underline;
+}
