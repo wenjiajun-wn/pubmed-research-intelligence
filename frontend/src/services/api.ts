@@ -7,9 +7,13 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     const response = await fetch(`/api${path}`, {
       ...init,
       signal: controller.signal,
+      cache: "no-store",
     });
     const body = await response.json().catch(() => null);
     if (!response.ok) {
+      if (response.status === 429) {
+        throw new Error("Too many analysis requests. Please wait 30 seconds and try again.");
+      }
       const message =
         typeof body?.detail === "string"
           ? body.detail

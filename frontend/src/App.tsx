@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { AnalysisProgress } from "./components/AnalysisProgress";
+import { PageErrorBoundary } from "./components/PageErrorBoundary";
 import { HomePage } from "./pages/HomePage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { DataSourcesPage } from "./pages/DataSourcesPage";
@@ -131,6 +132,7 @@ export default function App() {
   };
   return (
     <Layout analysisId={lastId}>
+      <PageErrorBoundary key={location.pathname}>
       <Routes>
         <Route
           path="/"
@@ -162,6 +164,7 @@ export default function App() {
           }
         />
       </Routes>
+      </PageErrorBoundary>
     </Layout>
   );
 }

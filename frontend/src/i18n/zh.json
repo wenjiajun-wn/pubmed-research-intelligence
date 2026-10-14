@@ -281,5 +281,9 @@
   "Retraction of Publication": "撤稿通知",
   "Expression of Concern": "关注声明",
   "Journal Article": "期刊论文",
-  "Review": "综述"
+  "Review": "综述",
+  "This page could not be displayed": "页面暂时无法显示",
+  "The analysis may still be running. Refresh this page to reconnect, or return to the explorer.": "分析任务可能仍在运行。刷新此页面可重新连接，也可以返回首页。",
+  "Reload page": "刷新页面",
+  "Too many analysis requests. Please wait 30 seconds and try again.": "分析请求过于频繁，请等待 30 秒后再试。"
 }

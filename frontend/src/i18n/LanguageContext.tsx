@@ -48,8 +48,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
   const t = useCallback(
     (text: string, values?: Values) => {
-      const translated =
-        language === "zh" ? (translations[text] ?? text) : text;
+      const candidate = Object.prototype.hasOwnProperty.call(translations, text)
+        ? translations[text] : undefined;
+      const translated = language === "zh" && typeof candidate === "string" ? candidate : text;
       return translated.replace(/\{(\w+)\}/g, (match, key: string) =>
         values?.[key] == null ? match : String(values[key]),
       );
