@@ -1,0 +1,6 @@
+[Unit]
+Description=Renew only PubMed HTTPS certificate
+
+[Service]
+Type=oneshot
+ExecStart=/opt/certbot/bin/certbot renew --cert-name pubmed.ai-calendar.xyz --quiet

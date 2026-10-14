@@ -1,0 +1,34 @@
+name: pubmed
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file: deploy/private/backend.env
+    volumes:
+      - cache:/data/cache
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    mem_limit: 768m
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on: [backend]
+    restart: unless-stopped
+    mem_limit: 128m
+  gateway:
+    image: caddy:2-alpine
+    env_file: deploy/private/gateway.env
+    ports: ["80:80", "443:443", "443:443/udp"]
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [frontend]
+    restart: unless-stopped
+    mem_limit: 128m
+volumes:
+  cache:
+  caddy_data:
+  caddy_config:

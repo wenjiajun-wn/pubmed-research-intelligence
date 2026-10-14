@@ -2,7 +2,7 @@ import hashlib
 import json
 import uuid
 from datetime import datetime, timezone
-from config import CACHE_DIR, CACHE_TTL_HOURS
+from config import CACHE_DIR, CACHE_TTL_HOURS, ROOT
 from models.schemas import Paper
 
 
@@ -20,7 +20,7 @@ def cache_path(query: str, size: int):
 
 
 def read_cache(query: str, size: int, allow_stale: bool = False, demo: bool = False) -> dict | None:
-    path = CACHE_DIR / 'alzheimers.json' if demo else cache_path(query, size)
+    path = ROOT / 'cache' / 'alzheimers.json' if demo else cache_path(query, size)
     try:
         snapshot = json.loads(path.read_text(encoding='utf-8'))
         if not isinstance(snapshot, dict):

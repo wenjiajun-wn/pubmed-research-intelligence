@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+**/node_modules
+**/dist
+**/.deps
+**/__pycache__
+**/.pytest_cache
+**/*.tsbuildinfo
+backend/cache/query_*.json
+.impeccable
+docs
+deploy/private

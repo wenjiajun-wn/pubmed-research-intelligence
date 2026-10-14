@@ -12,3 +12,4 @@ __pycache__/
 backend/cache/query_*.json
 .pytest_cache/
 *.log
+deploy/private/

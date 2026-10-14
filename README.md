@@ -1,5 +1,9 @@
 # PubMed Research Intelligence
 
+在线演示：[https://pubmed.ai-calendar.xyz](https://pubmed.ai-calendar.xyz)（需要独立演示账号，凭据不存放在仓库）。源码：[GitHub](https://github.com/wenjiajun-wn/pubmed-research-intelligence)。
+
+生产部署说明见 [deploy/README.md](deploy/README.md)，提供 Docker Compose 与现有 Nginx + systemd 两种方式。当前线上采用后者，独立子域名、HTTPS、访问认证、分析限流及持久缓存；不影响服务器其他网站。
+
 用于面试现场演示的医学科研文献分析平台。输入关键词，从 NCBI PubMed 获取真实论文，分析发文趋势、国家/地区、期刊和主题，展示样本内 Top 100，并生成约 500 字中文科研简报。
 
 ## Quick start
@@ -253,7 +257,7 @@ node scripts/verify-browser.mjs
 
 ## Deployment boundaries
 
-这是本地单用户 Demo，不含登录、计费、公共网络安全网关或分布式队列。生产部署应增加鉴权、持久化任务和适当的反向代理限流。当前只监听 loopback，前端不直接调用外部付费模型。项目尚未发布公共 GitHub 仓库，导航里的 GitHub 入口说明本地源码位置，不伪造仓库链接。
+这是本地单用户 Demo，不含登录、计费、公共网络安全网关或分布式队列。生产部署应增加鉴权、持久化任务和适当的反向代理限流。当前生产后端只监听 loopback，由 Nginx 转发，前端不直接调用外部付费模型。项目尚未发布公共 GitHub 仓库，导航里的 GitHub 入口说明本地源码位置，不伪造仓库链接。
 
 ### 2026-10-13 审查修复
 

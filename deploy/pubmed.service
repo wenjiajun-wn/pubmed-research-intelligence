@@ -1,0 +1,25 @@
+[Unit]
+Description=PubMed Research Intelligence API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pubmed
+Group=pubmed
+WorkingDirectory=/opt/pubmed/backend
+EnvironmentFile=/etc/pubmed/backend.env
+Environment=PYTHONUNBUFFERED=1
+Environment=CACHE_DIR=/var/lib/pubmed/cache
+ExecStart=/opt/pubmed/.venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 8001 --workers 1 --no-proxy-headers
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/pubmed
+MemoryMax=400M
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
