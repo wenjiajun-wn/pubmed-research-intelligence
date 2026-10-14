@@ -152,6 +152,7 @@ class PubMedClient:
             for year in range(now.year - 10, now.year + 1):
                 count = await self.search(query, datetype='pdat', mindate=f'{year}/01/01', maxdate=f'{year}/12/31')
                 snapshot['annual_counts'].append({'year': year, 'count': int(count['count'])})
+                await progress('analyzing', 52 + int(8 * (year - (now.year - 10) + 1) / 11))
         except (PubMedError, ValueError):
             snapshot['annual_counts'] = []
             snapshot['annual_counts_scope'] = 'unavailable'

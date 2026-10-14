@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 jobs: dict[str, dict] = {}
 workers: set[asyncio.Task] = set()
 semaphore = asyncio.Semaphore(2)
+STEPS = ['searching', 'collecting', 'analyzing', 'extracting', 'ranking', 'summarizing']
 
 
 @asynccontextmanager
@@ -37,9 +38,15 @@ app.add_middleware(CORSMiddleware, allow_origins=os.getenv('CORS_ORIGINS', 'http
 async def run_analysis(job_id: str, request: AnalysisRequest):
     job = jobs[job_id]
     async def progress(stage, percent):
-        job.update(stage=stage, progress=percent)
+        previous = job['stage']
+        if job['steps'].get(previous) == 'active':
+            job['steps'][previous] = 'completed'
+        if stage in job['steps']:
+            job['steps'][stage] = 'active'
+        job.update(stage=stage, progress=max(job['progress'], percent))
     async with semaphore:
         try:
+            await progress('checking_cache', 2)
             snapshot = None
             data_mode = 'live'
             fallback_warning = None
@@ -71,8 +78,14 @@ async def run_analysis(job_id: str, request: AnalysisRequest):
                         fallback_warning = 'Live retrieval failed. Showing a saved snapshot with its original retrieval time.'
             if request.sample_size < len(snapshot['papers']):
                 snapshot['papers'] = snapshot['papers'][:request.sample_size]
+            job['data_mode'] = data_mode
+            if data_mode != 'live':
+                for stage in ('searching', 'collecting'):
+                    if job['steps'][stage] != 'completed':
+                        job['steps'][stage] = 'skipped'
+            await progress('analyzing', 60)
+            result = await asyncio.to_thread(analyze, snapshot)
             await progress('extracting', 65)
-            result = analyze(snapshot)
             result.update(id=job_id, data_mode=data_mode, requested_sample_size=request.sample_size)
             if fallback_warning:
                 result['warnings'].append(fallback_warning)
@@ -81,7 +94,8 @@ async def run_analysis(job_id: str, request: AnalysisRequest):
             await progress('summarizing', 88)
             from services.llm import summarize
             result.update(await summarize(result, app.state.client, use_llm=request.mode != 'demo'))
-            job.update(status='completed', stage='complete', progress=100)
+            await progress('complete', 100)
+            job.update(status='completed')
         except PubMedError as exc:
             job.update(status='failed', stage='failed', error=str(exc))
         except Exception:
@@ -114,7 +128,7 @@ async def create_analysis(request: AnalysisRequest):
         if oldest:
             del jobs[oldest]
     job_id = uuid.uuid4().hex
-    jobs[job_id] = dict(id=job_id, status='running', stage='queued', progress=0, result=None, request=request.model_dump(), created=time.time())
+    jobs[job_id] = dict(id=job_id, status='running', stage='queued', progress=0, steps={s: 'pending' for s in STEPS}, result=None, request=request.model_dump(), created=time.time())
     task = asyncio.create_task(run_analysis(job_id, request))
     workers.add(task)
     task.add_done_callback(workers.discard)

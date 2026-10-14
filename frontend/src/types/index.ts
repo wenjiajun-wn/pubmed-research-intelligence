@@ -62,6 +62,8 @@ export type Analysis = {
   warnings: string[];
 };
 export type Job = {
+  steps?: Record<string, "pending" | "active" | "completed" | "skipped">;
+  data_mode?: Analysis["data_mode"];
   request?: { query: string; mode: "live" | "demo"; sample_size: number };
   id: string;
   status: "running" | "completed" | "failed";

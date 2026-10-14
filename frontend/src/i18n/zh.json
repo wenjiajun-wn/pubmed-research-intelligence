@@ -285,5 +285,16 @@
   "This page could not be displayed": "页面暂时无法显示",
   "The analysis may still be running. Refresh this page to reconnect, or return to the explorer.": "分析任务可能仍在运行。刷新此页面可重新连接，也可以返回首页。",
   "Reload page": "刷新页面",
-  "Too many analysis requests. Please wait 30 seconds and try again.": "分析请求过于频繁，请等待 30 秒后再试。"
+  "Too many analysis requests. Please wait 30 seconds and try again.": "分析请求过于频繁，请等待 30 秒后再试。",
+  "Generating research brief": "正在生成科研简报",
+  "Synchronizing analysis status": "正在同步任务状态…",
+  "Checking saved publications": "正在检查已保存的文献",
+  "Cached data · skipped": "缓存命中 · 已跳过",
+  "PubMed search": "检索 PubMed",
+  "Publication collection": "采集论文信息",
+  "Research trend analysis": "分析研究趋势",
+  "Research topic extraction": "提取研究主题",
+  "Paper ranking": "排序代表论文",
+  "Research brief generation": "生成科研简报",
+  "Completed": "已完成"
 }

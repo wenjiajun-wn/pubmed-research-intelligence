@@ -230,6 +230,27 @@
 .progress-panel .fine-print {
   margin-top: 28px;
 }
+.progress-title p[role="status"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.progress-panel li.skipped {
+  color: #64748b;
+}
+.progress-panel li small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+.progress-panel.compact-progress {
+  max-width: none;
+  margin: 24px 0;
+  padding: 24px;
+}
+.compact-progress .progress-track {
+  margin: 20px 0;
+}
 .spin {
   animation: spin 1.6s linear infinite;
 }

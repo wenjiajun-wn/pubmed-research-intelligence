@@ -86,11 +86,15 @@ function AnalysisRoute({
           </div>
         </div>
       )}
-      {!error && (!job || job.status === "running") && !job?.result && (
+      {!error && (
         <div className="page-width">
           <AnalysisProgress
             stage={job?.stage || "queued"}
             progress={job?.progress || 0}
+            steps={job?.steps}
+            dataMode={job?.data_mode || job?.result?.data_mode}
+            syncing={!job}
+            compact={Boolean(job?.result)}
           />
         </div>
       )}

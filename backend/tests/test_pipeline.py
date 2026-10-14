@@ -115,6 +115,9 @@ def test_api_demo_fallback_and_wrong_query(monkeypatch):
         assert job['status'] == 'completed'
         assert job['result']['data_mode'] == 'cached_demo'
         assert job['result']['summary_mode'] == 'fallback'
+        assert job['progress'] == 100
+        assert job['steps']['searching'] == job['steps']['collecting'] == 'skipped'
+        assert all(job['steps'][s] == 'completed' for s in ['analyzing', 'extracting', 'ranking', 'summarizing'])
         assert client.get(f"/api/analyses/{job['id']}/sources").json()['retrieved'] == 500
         papers = client.get(f"/api/analyses/{job['id']}/papers?sort=year&limit=100").json()['items']
         assert [p['publication_year'] for p in papers] == sorted([p['publication_year'] for p in papers], reverse=True)
@@ -259,3 +262,39 @@ def test_fallback_representative_excludes_notices_and_missing_abstracts():
         assert fallback(result, 'test')['research_brief'][3]['pmids'] == []
     result['papers'] = [{**paper, 'abstract': '   ', 'publication_type': ['Journal Article']}]
     assert evidence_papers(result['papers']) == []
+
+
+def test_cached_progress_stays_visible_during_summary_and_records_queue(monkeypatch):
+    import main
+    from services import llm
+    async def run():
+        release = asyncio.Event()
+        async def summary(result, client, use_llm=True):
+            await release.wait()
+            return llm.fallback(result, 'test')
+        monkeypatch.setattr(llm, 'summarize', summary)
+        monkeypatch.setattr(main, 'read_cache', lambda *_args, **_kwargs: sample())
+        monkeypatch.setattr(main, 'semaphore', asyncio.Semaphore(2))
+        main.jobs.clear()
+        async with main.lifespan(main.app):
+            async with httpx.AsyncClient(transport=httpx.ASGITransport(app=main.app), base_url='http://test') as client:
+                ids = [(await client.post('/api/analyses', json={'query': "Alzheimer's disease"})).json()['id'] for _ in range(3)]
+                for _ in range(150):
+                    jobs = [(await client.get('/api/analyses/' + id)).json() for id in ids]
+                    if all(j['stage'] == 'summarizing' for j in jobs[:2]):
+                        break
+                    await asyncio.sleep(.02)
+                for job in jobs[:2]:
+                    assert job['progress'] == 88 and job['status'] == 'running'
+                    assert job['result'] is not None
+                    assert job['steps']['summarizing'] == 'active'
+                    assert job['steps']['collecting'] == 'skipped'
+                assert jobs[2]['stage'] == 'queued' and jobs[2]['progress'] == 0
+                assert set(jobs[2]['steps'].values()) == {'pending'}
+                release.set()
+                await asyncio.gather(*list(main.workers))
+                for id in ids:
+                    job = (await client.get('/api/analyses/' + id)).json()
+                    assert job['stage'] == 'complete' and job['progress'] == 100
+                    assert job['steps']['summarizing'] == 'completed'
+    asyncio.run(run())
