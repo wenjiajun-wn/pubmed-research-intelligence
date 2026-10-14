@@ -46,15 +46,18 @@ try {
   await page.screenshot({ path: '../deploy/private/progress/mobile-generating.png' })
   await page.setViewportSize({ width: 1440, height: 1000 })
   phase = 'complete'
-  await expect(page.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '100')
-  await expect(page.locator('[data-state="completed"]')).toHaveCount(6)
+  await expect(page.locator('.progress-panel')).toHaveCount(0)
+  await expect(page.locator('.analysis-complete')).toContainText('分析完成')
   cached = true
+  phase = 'summarizing'
   await page.goto(`${process.env.PROGRESS_SITE_URL || 'http://127.0.0.1:5173'}/analysis/progress-cached`)
   await expect(page.locator('[data-state="skipped"]')).toHaveCount(2)
-  await expect(page.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '100')
+  phase = 'complete'
+  await expect(page.locator('.progress-panel')).toHaveCount(0)
+  await expect(page.locator('.dashboard')).toBeVisible()
   await page.screenshot({ path: '../deploy/private/progress/desktop-cached-complete.png' })
   expect(errors).toEqual([])
-  const report = { checks: ['queue is explicit', 'live collection updates', 'annual-count progress updates', '88% remains with partial dashboard', '100% completion remains visible', 'cache steps shown as skipped', 'mobile no overflow'], browserErrors: errors }
+  const report = { checks: ['queue is explicit', 'live collection updates', 'annual-count progress updates', '88% remains with partial dashboard', 'completion hides progress card', 'cache steps shown while running', 'cached completion hides progress card', 'mobile no overflow'], browserErrors: errors }
   await writeFile('../deploy/private/progress/report.json', JSON.stringify(report, null, 2))
   console.log(JSON.stringify(report))
 } finally { await browser.close() }

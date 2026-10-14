@@ -86,7 +86,7 @@ function AnalysisRoute({
           </div>
         </div>
       )}
-      {!error && (
+      {!error && (!job || job.status === "running") && (
         <div className="page-width">
           <AnalysisProgress
             stage={job?.stage || "queued"}

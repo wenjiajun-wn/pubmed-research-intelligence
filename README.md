@@ -265,4 +265,4 @@ node scripts/verify-browser.mjs
 
 ### 分析进度同步
 
-进度卡始终保留到任务完成，后台返回每一步的 pending/active/completed/skipped 状态。缓存命中会明确标记跳过检索/采集；年度查询逐年更新进度，简报生成时继续显示88%，完成后显示100%并保留流程结果。百分比是工作阶段检查点，不是耗时预测。快速任务可以直接完成，不使用人为延时模拟流程。生产网站已观察到 analyzing → summarizing → complete 的真实更新。
+进度卡仅在任务进行中显示，后台返回每一步的 pending/active/completed/skipped 状态。缓存命中会明确标记跳过检索/采集；年度查询逐年更新进度，简报生成时继续显示88%，任务完成后自动收起进度卡，直接展示结果页。百分比是工作阶段检查点，不是耗时预测。快速任务可以直接完成，不使用人为延时模拟流程。生产网站已观察到 analyzing → summarizing → complete 的真实更新。
