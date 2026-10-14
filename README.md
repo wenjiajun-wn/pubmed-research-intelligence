@@ -1,8 +1,8 @@
 # PubMed Research Intelligence
 
-在线演示：[https://pubmed.ai-calendar.xyz](https://pubmed.ai-calendar.xyz)（需要独立演示账号，凭据不存放在仓库）。源码：[GitHub](https://github.com/wenjiajun-wn/pubmed-research-intelligence)。
+在线演示：[https://pubmed.ai-calendar.xyz](https://pubmed.ai-calendar.xyz)（无需登录，分析请求有限流）。源码：[GitHub](https://github.com/wenjiajun-wn/pubmed-research-intelligence)。
 
-生产部署说明见 [deploy/README.md](deploy/README.md)，提供 Docker Compose 与现有 Nginx + systemd 两种方式。当前线上采用后者，独立子域名、HTTPS、访问认证、分析限流及持久缓存；不影响服务器其他网站。
+生产部署说明见 [deploy/README.md](deploy/README.md)，提供 Docker Compose 与现有 Nginx + systemd 两种方式。当前线上采用后者，独立子域名、HTTPS、分析限流及持久缓存；不影响服务器其他网站。
 
 用于面试现场演示的医学科研文献分析平台。输入关键词，从 NCBI PubMed 获取真实论文，分析发文趋势、国家/地区、期刊和主题，展示样本内 Top 100，并生成约 500 字中文科研简报。
 

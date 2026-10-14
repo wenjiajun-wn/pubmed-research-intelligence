@@ -1,7 +1,4 @@
 {$SITE_DOMAIN} {
-    basic_auth {
-        {$DEMO_USER} {$DEMO_PASSWORD_HASH}
-    }
     header {
         X-Content-Type-Options nosniff
         Referrer-Policy same-origin
