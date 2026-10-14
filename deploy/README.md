@@ -14,7 +14,7 @@ Install `pubmed-cert-renew.service` and `pubmed-cert-renew.timer` under `/etc/sy
 
 Add the HTTP-only ACME configuration as a new Nginx site, run `nginx -t`, and reload Nginx. Request a certificate with Certbot webroot `/var/lib/pubmed-acme` for `pubmed.ai-calendar.xyz`. After issuance replace only this site's config with `pubmed-https.conf`, validate and reload. Keep certificate renewal enabled and reload Nginx in the renewal deploy hook. Never modify other server blocks.
 
-All site and API routes are publicly accessible over HTTPS. HTTP redirects to HTTPS (the certificate challenge path is the sole exception). New analysis requests are globally limited to two per minute, with a burst of two; status polling is not limited by this rule. Requests exceeding the quota get HTTP 429. This limits spend but is not a monetary budget; also set a provider account budget where available.
+All site and API routes are publicly accessible over HTTPS. HTTP redirects to HTTPS (the certificate challenge path is the sole exception). There is no Nginx per-minute analysis request limit. The backend still runs two analysis tasks at a time and accepts at most four running/queued tasks; a full task queue returns HTTP 429. This is capacity management, independent of elapsed time between submissions.
 
 ## Docker on an otherwise empty host
 
@@ -24,6 +24,6 @@ Run `docker compose up -d --build`. Only the Caddy gateway exposes public ports 
 
 ## Verification
 
-Check: homepage and `/api/health` return 200 without credentials or a login prompt; HTTP redirects; sample demo completes without upstream APIs; 300/500/1000 selection and Chinese switch work; a live query yields a valid AI brief or an explicitly labeled fallback; excess analysis submissions return 429; neither environment files nor API docs reveal credentials. Check that the original website still responds after each Nginx reload.
+Check: homepage and `/api/health` return 200 without credentials or a login prompt; HTTP redirects; sample demo completes without upstream APIs; 300/500/1000 selection and Chinese switch work; a live query yields a valid AI brief or an explicitly labeled fallback; six consecutive invalid submissions return validation errors (422) rather than a time-based rate-limit error; neither environment files nor API docs reveal credentials. Check that the original website still responds after each Nginx reload.
 
 Run `node scripts/verify-production.mjs` from `frontend` for a live production check. Set `PUBMED_TEST_MODE=demo` to validate the public demo without a paid model call.
